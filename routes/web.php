@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
+// basic routing
 Route::get('/hello', function () {
     return 'Hello Word';
 });
@@ -28,3 +28,25 @@ Route::get('/', function () {
 Route::get('/about', function () {
     return '2341760107';
 });
+
+// route parameters
+Route::get('/user/{name}', function ($name) {
+    return 'Nama Saya '.$name;
+});
+
+Route::get('/posts/{post}/comments/{comment}', function ($postId, $commentId) {
+    return 'Pos ke-'.$postId. "Komentar ke-:".$commentId;
+});
+
+Route::get('/articels/{id}', function ($Id) {
+    return 'Halaman Artikel dengan ID-'.$Id;
+});
+
+Route::get('/user/{name?}',function ($name = null){
+    return 'Nama Saya '.$name;
+});
+
+Route::get('/user/{name?}',function ($name = 'john') {
+    return 'Nama Saya '.$name;
+});
+
