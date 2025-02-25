@@ -1,6 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\WelcomeController;
+use App\Http\Controllers\PageController;
+use App\Http\Controllers\SingleActionController;
+use Illuminate\Routing\RouteBinding;
+use App\Http\Controllers\PhotoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,3 +55,12 @@ Route::get('/user/{name?}',function ($name = 'john') {
     return 'Nama Saya '.$name;
 });
 
+
+Route::get('/hello', [WelcomeController::class,'hello']);
+Route:: get('/index',[PageController::class,'index']);
+Route::get('/about',[PageController ::class,'about']);
+Route::get('/articles/{id}',[PageController::class,'articles']);
+
+Route::get('/single/{id?}', [SingleActionController::class,'single']);
+
+Route::resource('photos', PhotoController::class);
