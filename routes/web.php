@@ -64,3 +64,13 @@ Route::get('/articles/{id}',[PageController::class,'articles']);
 Route::get('/single/{id?}', [SingleActionController::class,'single']);
 
 Route::resource('photos', PhotoController::class);
+
+Route::get('/greeting', function () {
+	return view('hello', ['name' => 'Putri']);
+});
+
+Route::get('/greeting', function () {
+	return view('blog.hello', ['name' => 'Putri']);
+});
+Route::get('/greeting', [WelcomeController::class, 'greeting']);
+
